@@ -1,6 +1,7 @@
 import com.mnit.util.checkoutSCM;
 import com.mnit.erp.builldCompileApp;
 import com.mnit.erp.environmentVars;
+import com.mnit.erp.deployApp;
 import com.mnit.util.staticCodeAnalysis;
 import com.mnit.util.sendEmail;
 def call(Map pipelineParams) {
