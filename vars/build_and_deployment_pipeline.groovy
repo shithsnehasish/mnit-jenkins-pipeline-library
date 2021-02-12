@@ -27,7 +27,7 @@ def call(Map pipelineParams) {
         }
         if(pipelineParams.EMAIL_TO_LIST?.trim()){   
           echo "email send enabled"   
-          new sendEmail().call(pipelineParams,"SUCCESS")   
+          //new sendEmail().call(pipelineParams,"SUCCESS")   
         } 
 
       }
@@ -38,7 +38,7 @@ def call(Map pipelineParams) {
     currentBuild.result = 'FAILURE' 
     if(pipelineParams.EMAIL_TO_LIST?.trim()){   
       echo "email send enabled"   
-      sendEmail().call(pipelineParams,"FAILURE")   
+      //sendEmail().call(pipelineParams,"FAILURE")   
     }  
     throw err
   }
