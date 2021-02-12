@@ -1,66 +1,34 @@
----
-    apiVersion: apps/v1
-    
-    kind: Deployment
-    
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: %APP_NAME%-deployment
+  namespace: %NAMESPACE% 
+spec:
+  selector:
+    matchLabels:
+      app: %APP_NAME%
+  replicas: %REPLICAS%
+  template:
     metadata:
-    
-      name: %APP_NAME%-deployment
-    
-      namespace: %NAMESPACE% 
-    
-    spec:
-    
-      selector:
-    
-        matchLabels:
-    
-          app: %APP_NAME%
-    
-      replicas: 1
-    
-      template:
-    
-        metadata:
-    
-          labels:
-    
-            app: %APP_NAME%
-    
-        spec:
-    
-          containers:
-    
-          - name: %APP_NAME%
-    
-            image: "%DOCKER_REGISTRY%%REPO%:latest"
-    
-            ports:
-    
-            - containerPort: %CONTAINER_PORT%
-    
-    ---
-    
-    kind: Service
-    
-    apiVersion: v1
-    
-    metadata:
-    
-      name: %APP_NAME%-svc
-    
-      namespace: %NAMESPACE% 
-    
-    spec:
-    
-      selector:
-    
+      labels:
         app: %APP_NAME%
-    
-      ports:
-    
-      - port: %HOST_PORT%
-      externalIPs:
-    
-        - %HOST_IP%
-      type: LoadBalancer #ClusterIP # LoadBalancer # NodePort # 
+    spec:
+      containers:
+      - name: %APP_NAME%
+        image: "%DOCKER_REGISTRY%%REPO%:latest"
+        ports:
+        - containerPort: %CONTAINER_PORT%
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: %APP_NAME%-svc
+  namespace: %NAMESPACE% 
+spec:
+  selector:
+    app: %APP_NAME%
+  ports:
+  - port: %HOST_PORT%
+  externalIPs:
+    - %HOST_IP%
+  type: LoadBalancer #ClusterIP # LoadBalancer # NodePort # 

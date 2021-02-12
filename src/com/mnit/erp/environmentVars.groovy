@@ -8,5 +8,6 @@ def call(Map pipelineParams) {
     env.CONTAINER_PORT = pipelineParams.CONTAINER_PORT
     env.NAMESPACE = pipelineParams.NAMESPACE
     env.HOST_PORT = pipelineParams.HOST_PORT
-    env.HOST_IP  = pipelineParams.HOST_IP    
+    env.HOST_IP  = pipelineParams.HOST_IP   
+    env.REPLICAS = pipelineParams.REPLICAS 
 }
