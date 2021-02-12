@@ -33,7 +33,7 @@
     
           - name: %APP_NAME%
     
-            image: %DOCKER_REGISTRY%%REPO%:latest
+            image: "%DOCKER_REGISTRY%%REPO%:latest"
     
             ports:
     
