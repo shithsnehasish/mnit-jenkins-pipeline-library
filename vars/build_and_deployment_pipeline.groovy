@@ -11,7 +11,7 @@ def call(Map pipelineParams) {
       env.REPO = pipelineParams.REPO
       pipeline {
         new environmentVars().call(pipelineParams)
-        node {
+        node(pipelineParams.BUILD_NODE) {
           stage("Code Checkout") {
             new checkoutSCM().call(pipelineParams)
           }
