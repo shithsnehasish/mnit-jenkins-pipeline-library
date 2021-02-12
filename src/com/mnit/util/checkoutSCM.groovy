@@ -1,7 +1,7 @@
 package com.mnit.util
 
 def call(Map pipelineParams) {
-    SCM_URL="https://github.com/"+pipelineParams.GIT_GROUP+"/"+pipelineParams.REPO
+    SCM_URL="git@github.com:"+pipelineParams.GIT_GROUP+"/"+pipelineParams.REPO
     echo "Code checkout from SCM Repo"
     checkout([$class: 'GitSCM', branches: [[name: "${pipelineParams.BRANCH}"]],
         doGenerateSubmoduleConfigurations: false,
