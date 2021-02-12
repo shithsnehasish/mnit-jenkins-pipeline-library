@@ -5,7 +5,7 @@ def call(Map pipelineParams) {
     {
         sh '''
             cd $REPO
-            deploy -P docker -Ddocker.host=${DOCKER_HOST} -Ddocker.registry.name=${DOCKER_REGISTRY}-Dmaven.test.skip=true
+            mvn deploy -P docker -Ddocker.host=${DOCKER_HOST} -Ddocker.registry.name=${DOCKER_REGISTRY}-Dmaven.test.skip=true
         '''
     }
     else if(pipelineParams.APP_TYPE == "NODE")
