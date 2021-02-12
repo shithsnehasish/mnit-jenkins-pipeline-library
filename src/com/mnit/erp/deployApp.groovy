@@ -13,6 +13,7 @@ def call(Map pipelineParams) {
         sed -i "s;%HOST_PORT%;${HOST_PORT};" app-service.yaml
         sed -i "s;%HOST_IP%;${HOST_IP};" app-service.yaml
         sed -i "s;%REPO%;${REPO};" app-service.yaml
+        sed -i "s;%REPLICAS%;${REPLICAS};" app-service.yaml
         echo Curiosity4ERP# | sudo -S kubectl apply -f app-service.yaml
     '''
 }
