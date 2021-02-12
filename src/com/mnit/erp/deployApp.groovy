@@ -2,7 +2,7 @@ package com.mnit.erp
 
 def call(Map pipelineParams) {
 
-    def fileWrite = libraryResource app-service.yaml
+    def fileWrite = libraryResource "app-service.yaml"
 	writeFile file: "${WORKSPACE}/${REPO}/app-service.yaml", text: fileWrite
     sh '''
         cd ${WORKSPACE}/${REPO}/
