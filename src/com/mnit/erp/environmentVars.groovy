@@ -10,4 +10,5 @@ def call(Map pipelineParams) {
     env.HOST_PORT = pipelineParams.HOST_PORT
     env.HOST_IP  = pipelineParams.HOST_IP   
     env.REPLICAS = pipelineParams.REPLICAS 
+    env.ENVIRONMENT = pipelineParams.ENVIRONMENT
 }

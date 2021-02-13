@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: %APP_NAME%-deployment
+  name: %ENVIRONMENT%-%APP_NAME%-deployment
   namespace: %NAMESPACE% 
 spec:
   selector:
     matchLabels:
-      app: %APP_NAME%
+      app: %ENVIRONMENT%-%APP_NAME%
   replicas: %REPLICAS%
   template:
     metadata:
       labels:
-        app: %APP_NAME%
+        app: %ENVIRONMENT%-%APP_NAME%
     spec:
       containers:
-      - name: %APP_NAME%
+      - name: %ENVIRONMENT%-%APP_NAME%
         image: "%DOCKER_REGISTRY%%REPO%:latest"
         ports:
         - containerPort: %CONTAINER_PORT%
@@ -22,11 +22,11 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: %APP_NAME%-svc
+  name: %ENVIRONMENT%-%APP_NAME%-svc
   namespace: %NAMESPACE% 
 spec:
   selector:
-    app: %APP_NAME%
+    app: %ENVIRONMENT%-%APP_NAME%
   ports:
   - port: %HOST_PORT%
   externalIPs:
