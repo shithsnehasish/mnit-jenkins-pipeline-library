@@ -11,7 +11,24 @@ def call(Map pipelineParams) {
     else if(pipelineParams.APP_TYPE == "NODE")
     {
         sh '''
+            cd $REPO
+            npm install
+            if [ $ENVIRONMENT == 'dev' ]
+            then
+                npm run build:dev
+            else if [ $ENVIRONMENT == 'uat' ]
+            then
+                npm run build:uat
+            else if [ $ENVIRONMENT == 'prd' ]
+            then
+                npm run build:prd
+            else
+                npm run build
+            fi
 
+            version=$(jq -r .version package.json)
+            docker build -t ${DOCKER_REGISTRY}/${APP_NAME}:$version .
+            docker push ${DOCKER_REGISTRY}/${APP_NAME}:$version
         '''
     }
     else {
