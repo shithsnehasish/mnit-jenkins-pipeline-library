@@ -2,8 +2,6 @@ package com.mnit.erp
 
 def call(Map pipelineParams) {
 
-    def fileWrite = libraryResource "app-service.yaml"
-	writeFile file: "${WORKSPACE}/app-service.yaml", text: fileWrite
   def svcs = pipelineParams.SERVICES
     withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
 sh '''
