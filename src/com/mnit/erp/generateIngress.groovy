@@ -3,7 +3,7 @@ package com.mnit.erp
 def call(Map pipelineParams) {
 
     def fileWrite = libraryResource "app-service.yaml"
-	writeFile file: "${WORKSPACE}/${REPO}/app-service.yaml", text: fileWrite
+	writeFile file: "${WORKSPACE}/app-service.yaml", text: fileWrite
   def svcs = pipelineParams.SERVICES
     withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
 sh '''
@@ -44,7 +44,7 @@ svcs.each {
 sh '''
 echo "
       - backend:
-          serviceName: $ENVIRONMENT-$APP_NAME-svc
+          serviceName: $ENVIRONMENT-$SVC-svc
           servicePort: 80
         path: /$APP_NAME
             " >> ${WORKSPACE}/ingress.yaml
