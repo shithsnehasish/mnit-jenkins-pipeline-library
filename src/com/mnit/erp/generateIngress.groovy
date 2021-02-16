@@ -44,7 +44,7 @@ echo "
       - backend:
           serviceName: $ENVIRONMENT-$SVC-svc
           servicePort: 80
-        path: /$APP_NAME
+        path: /$SVC
             " >> ${WORKSPACE}/ingress.yaml
 '''
 }
