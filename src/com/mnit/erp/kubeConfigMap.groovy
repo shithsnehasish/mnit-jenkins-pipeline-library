@@ -4,7 +4,7 @@ def call(Map pipelineParams) {
 
     def fileWrite = libraryResource "$APP_NAME/configMap.yaml"
 	writeFile file: "${WORKSPACE}/${REPO}/configMap.yaml", text: fileWrite
-    withCredentials([usernamePassword(credentialsId: $ENVIRONMENT'-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
+    withCredentials([usernamePassword(credentialsId: "${ENVIRONMENT}-k8s-master", passwordVariable: 'pwd', usernameVariable: 'user')]) { 
         sh '''
             cd ${WORKSPACE}/${REPO}/
             sed -i "s;%APP_NAME%;${APP_NAME};" configMap.yaml
