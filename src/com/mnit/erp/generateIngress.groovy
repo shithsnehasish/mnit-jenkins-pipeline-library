@@ -14,7 +14,7 @@ metadata:
   namespace: $NAMESPACE
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false'
 spec:
   rules:
   - host: $DNS # change the IP address here
