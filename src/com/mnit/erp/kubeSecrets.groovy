@@ -10,7 +10,7 @@ def call(Map pipelineParams) {
     withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
         sh '''
             cd ${WORKSPACE}/
-            sed -i "s;%APP_NAME%;${APP_NAME};" serviceSecretsyaml
+            sed -i "s;%APP_NAME%;${APP_NAME};" serviceSecrets.yaml
             sed -i "s;%NAMESPACE%;${NAMESPACE};" serviceSecrets.yaml
             sed -i "s;%ENVIRONMENT%;${ENVIRONMENT};" serviceSecrets.yaml
             sed -i "s;%APP_NAME%;${APP_NAME};" rootSecrets.yaml
