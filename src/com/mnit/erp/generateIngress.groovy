@@ -5,7 +5,7 @@ def call(Map pipelineParams) {
     def fileWrite = libraryResource "app-service.yaml"
 	writeFile file: "${WORKSPACE}/${REPO}/app-service.yaml", text: fileWrite
   def svcs = pipelineParams.SERVICES
-    withCredentials([usernamePassword(credentialsId: '$ENVIRONMENT-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
+    withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
 sh '''
 echo "---
 apiVersion: networking.k8s.io/v1beta1
@@ -51,7 +51,7 @@ echo "
 '''
 }
 sh '''
-  echo $pwd | sudo -S kubectl apply -f ${WORKSPACE}/ingress.yaml
+  echo Curiosity4ERP# | sudo -S kubectl apply -f ${WORKSPACE}/ingress.yaml
 '''
     }
 }
