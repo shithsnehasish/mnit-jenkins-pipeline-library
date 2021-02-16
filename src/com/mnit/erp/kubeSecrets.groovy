@@ -7,7 +7,7 @@ def call(Map pipelineParams) {
     writeFile file: "${WORKSPACE}/rootSecrets.yaml", text: fileWrite
 	writeFile file: "${WORKSPACE}/serviceSecrets.yaml", text: fileWrite2
     credId = "${ENVIRONMENT}-k8s-master"
-    withCredentials([usernamePassword(credentialsId: credId, passwordVariable: 'pwd', usernameVariable: 'user')]) { 
+    withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
         sh '''
             cd ${WORKSPACE}/
             sed -i "s;%APP_NAME%;${APP_NAME};" serviceSecretsyaml

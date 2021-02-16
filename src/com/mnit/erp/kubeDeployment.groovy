@@ -5,7 +5,7 @@ def call(Map pipelineParams) {
     def fileWrite = libraryResource "$APP_NAME/service.yaml"
 	writeFile file: "${WORKSPACE}/service.yaml", text: fileWrite
     credId = "${ENVIRONMENT}-k8s-master"
-    withCredentials([usernamePassword(credentialsId: credId, passwordVariable: 'pwd', usernameVariable: 'user')]) { 
+    withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
         sh '''
             cd ${WORKSPACE}/
             sed -i "s;%APP_NAME%;${APP_NAME};" service.yaml
