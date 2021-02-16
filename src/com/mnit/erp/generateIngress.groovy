@@ -16,11 +16,6 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - http:
-      paths:" >> ${WORKSPACE}/ingress.yaml
-'''
-sh '''
-echo "
   - host: $DNS # change the IP address here
     http:
       paths:" >> ${WORKSPACE}/ingress.yaml
@@ -29,10 +24,10 @@ svcs.each {
   env.SVC = it
 sh '''
 echo "
-      - backend:
+      - path: /$SVC
+        backend:
           serviceName: $ENVIRONMENT-$SVC-svc
           servicePort: 80
-        path: /$SVC
             " >> ${WORKSPACE}/ingress.yaml
 '''
 }
