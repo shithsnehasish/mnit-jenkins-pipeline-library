@@ -3,6 +3,7 @@ package com.mnit.erp
 def call(Map pipelineParams) {
 
   def svcs = pipelineParams.SERVICES
+  env.DNS = pipelineParams.DNS
     withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'usr')]) { 
 sh '''
 echo "---
