@@ -13,6 +13,7 @@ def call(Map pipelineParams) {
             sed -i "s;%CONTAINER_PORT%;${CONTAINER_PORT};" service.yaml
             sed -i "s;%HOST_PORT%;${HOST_PORT};" service.yaml
             sed -i "s;%HOST_IP%;${HOST_IP};" service.yaml
+            sed -i "s;%HOST_NAME%;${HOST_NAME};" service.yaml
             sed -i "s;%REPO%;${REPO};" service.yaml
             sed -i "s;%REPLICAS%;${REPLICAS};" service.yaml
             sed -i "s;%ENVIRONMENT%;${ENVIRONMENT};" service.yaml
