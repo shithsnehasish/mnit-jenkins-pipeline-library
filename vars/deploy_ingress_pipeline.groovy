@@ -9,6 +9,9 @@ def call(Map pipelineParams) {
       pipeline {
         new environmentVars().call(pipelineParams)
         node(pipelineParams.BUILD_NODE) {
+          sh '''
+            rm -rf ${WORKSPACE}/*
+          '''
           stage("Delete Service") {
             new generateIngress().call(pipelineParams)
           }
