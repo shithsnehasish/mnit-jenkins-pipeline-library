@@ -3,7 +3,7 @@ package com.mnit.erp
 def call(Map pipelineParams) {
 
   def svcs = pipelineParams.SERVICES
-    withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
+    withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'usr')]) { 
 sh '''
 echo "---
 apiVersion: networking.k8s.io/v1beta1
