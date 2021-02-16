@@ -15,8 +15,8 @@ def call(Map pipelineParams) {
             sed -i "s;%APP_NAME%;${APP_NAME};" rootSecrets.yaml
             sed -i "s;%NAMESPACE%;${NAMESPACE};" rootSecrets.yaml
             sed -i "s;%ENVIRONMENT%;${ENVIRONMENT};" rootSecrets.yaml
-            echo $pwd | sudo -S kubectl apply -f serviceSecrets.yaml
-            echo $pwd | sudo -S kubectl apply -f rootSecrets.yaml
+            echo ${pwd} | sudo -S kubectl apply -f serviceSecrets.yaml
+            echo ${pwd} | sudo -S kubectl apply -f rootSecrets.yaml
         '''
     }
 }
