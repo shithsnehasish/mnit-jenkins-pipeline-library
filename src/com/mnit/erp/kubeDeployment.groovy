@@ -16,7 +16,7 @@ def call(Map pipelineParams) {
             sed -i "s;%REPO%;${REPO};" service.yaml
             sed -i "s;%REPLICAS%;${REPLICAS};" service.yaml
             sed -i "s;%ENVIRONMENT%;${ENVIRONMENT};" service.yaml
-            echo ${pwd} | sudo -S kubectl apply -f service.yaml
+            echo '${pwd}' | sudo -S kubectl apply -f service.yaml
         '''
     }
 }
