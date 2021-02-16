@@ -31,4 +31,4 @@ spec:
   - port: %HOST_PORT%
   externalIPs:
     - %HOST_IP%
-  type: LoadBalancer #ClusterIP # LoadBalancer # NodePort # 
+  type: ClusterIP #ClusterIP # LoadBalancer # NodePort # 
