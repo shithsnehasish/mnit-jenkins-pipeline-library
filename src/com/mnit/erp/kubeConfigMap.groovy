@@ -13,7 +13,7 @@ def call(Map pipelineParams) {
             sed -i "s;%HOST_IP%;${HOST_IP};" configMap.yaml
             sed -i "s;%DB_NAME%;${DB_NAME};" configMap.yaml
             sed -i "s;%ENVIRONMENT%;${ENVIRONMENT};" configMap.yaml
-            echo ${user}
+            echo '${user}'
             echo ${pwd} | sudo -S kubectl apply -f configMap.yaml
         '''
     }
