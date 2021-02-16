@@ -21,7 +21,7 @@ spec:
       containers: 
         - 
           image: "mongo:4.2.12"
-          name: mondo-db
+          name: %APP_NAME%-mongo-db
           env:
           - name: MONGO_INITDB_ROOT_USERNAME
             value: admin
@@ -47,6 +47,15 @@ spec:
                 key: name
           ports:
           - containerPort: %CONTAINER_PORT%
+          volumeMounts:
+          - name: mongo-persistent-storage
+            mountPath: /data
+      volumes:
+      - name: mongo-persistent-storage
+        hostPath:
+          # Ensure the file directory is created.
+          path: /opt/mongodb/data
+          type: DirectoryOrCreate
 ---
 apiVersion: v1 
 kind: Service    
