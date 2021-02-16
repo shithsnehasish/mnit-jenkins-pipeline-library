@@ -2,7 +2,7 @@ package com.mnit.erp
 
 def call(Map pipelineParams) {
 
-    def fileWrite = libraryResource "configMap.yaml"
+    def fileWrite = libraryResource "$APP_NAME/configMap.yaml"
 	writeFile file: "${WORKSPACE}/${REPO}/configMap.yaml", text: fileWrite
     withCredentials([usernamePassword(credentialsId: '$ENVIRONMENT-k8s-master', passwordVariable: 'pwd', usernameVariable: 'user')]) { 
         sh '''
