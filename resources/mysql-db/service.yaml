@@ -51,6 +51,15 @@
               ports:
               - containerPort: %CONTAINER_PORT%
                 hostPort: %CONTAINER_PORT%
+              volumeMounts:
+              - name: mysql-persistent-storage
+                mountPath: /var/lib/mysql
+          volumes:
+          - name: mysql-persistent-storage
+            hostPath:
+              # Ensure the file directory is created.
+              path: /opt/mysql
+              type: DirectoryOrCreate
 ---
     apiVersion: v1 
     kind: Service   
