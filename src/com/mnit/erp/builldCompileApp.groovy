@@ -28,10 +28,10 @@ def call(Map pipelineParams) {
             fi
 
             version=$(jq -r .version package.json)
-            sudo su -c "docker build -t ${DOCKER_REGISTRY}${APP_NAME}:$version ."
-            sudo su -c "docker build -t ${DOCKER_REGISTRY}${APP_NAME}:latest ."
-            sudo su -c "docker push ${DOCKER_REGISTRY}${APP_NAME}:$version"
-            sudo su -c "docker push ${DOCKER_REGISTRY}${APP_NAME}:latest"
+            sudo su -c "docker build -t ${DOCKER_REGISTRY}${REPO}:$version ."
+            sudo su -c "docker build -t ${DOCKER_REGISTRY}${REPO}:latest ."
+            sudo su -c "docker push ${DOCKER_REGISTRY}${REPO}:$version"
+            sudo su -c "docker push ${DOCKER_REGISTRY}${REPO}:latest"
         '''
     }
     else {
