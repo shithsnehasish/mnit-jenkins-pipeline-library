@@ -28,7 +28,7 @@ def call(Map pipelineParams) {
             fi
 
             version=$(jq -r .version package.json)
-            echo 'Curiosity4ERP#' | sudo -S su root
+            echo 'Curiosity4ERP#' | su root
             cd ${WORKSPACE}/${REPO}
             docker build -t ${DOCKER_REGISTRY}${APP_NAME}:$version .
             docker build -t ${DOCKER_REGISTRY}${APP_NAME}:latest .
