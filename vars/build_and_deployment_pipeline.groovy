@@ -4,6 +4,7 @@ import com.mnit.erp.environmentVars;
 import com.mnit.erp.deployApp;
 import com.mnit.util.staticCodeAnalysis;
 import com.mnit.util.sendEmail;
+import com.mnit.erp.deleteDeployment;
 def call(Map pipelineParams) {
   try{
     timeout(time: 60, unit: 'MINUTES') {
