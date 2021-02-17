@@ -7,7 +7,7 @@ def call(Map pipelineParams) {
     withCredentials([usernamePassword(credentialsId: 'dev-k8s-master', passwordVariable: 'pwd', usernameVariable: 'usr')]) { 
 sh '''
 echo "---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: $ENVIRONMENT-$NAMESPACE-ingress
