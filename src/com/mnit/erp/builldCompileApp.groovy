@@ -29,7 +29,9 @@ def call(Map pipelineParams) {
 
             version=$(jq -r .version package.json)
             docker build -t ${DOCKER_REGISTRY}${APP_NAME}:$version .
+            docker build -t ${DOCKER_REGISTRY}${APP_NAME}:latest .
             docker push ${DOCKER_REGISTRY}${APP_NAME}:$version
+            docker push ${DOCKER_REGISTRY}${APP_NAME}:latest
         '''
     }
     else {
