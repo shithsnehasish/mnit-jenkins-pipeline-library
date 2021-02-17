@@ -28,10 +28,10 @@ def call(Map pipelineParams) {
             fi
 
             version=$(jq -r .version package.json)
-            echo 'Curiosity4ERP#' | su root -c 'docker build -t ${DOCKER_REGISTRY}${APP_NAME}:$version .'
-            echo 'Curiosity4ERP#' | su root -c 'docker build -t ${DOCKER_REGISTRY}${APP_NAME}:latest .'
-            echo 'Curiosity4ERP#' | su root -c 'docker push ${DOCKER_REGISTRY}${APP_NAME}:$version'
-            echo 'Curiosity4ERP#' | su root -c 'docker push ${DOCKER_REGISTRY}${APP_NAME}:latest'
+            echo 'Curiosity4ERP#' | sudo -S su -c 'docker build -t ${DOCKER_REGISTRY}${APP_NAME}:$version .'
+            echo 'Curiosity4ERP#' | sudo -S su -c 'docker build -t ${DOCKER_REGISTRY}${APP_NAME}:latest .'
+            echo 'Curiosity4ERP#' | sudo -S su -c 'docker push ${DOCKER_REGISTRY}${APP_NAME}:$version'
+            echo 'Curiosity4ERP#' | sudo -S su -c 'docker push ${DOCKER_REGISTRY}${APP_NAME}:latest'
         '''
     }
     else {
