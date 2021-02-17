@@ -15,7 +15,8 @@ def call(Map pipelineParams) {
             npm install
             if [ $ENVIRONMENT == 'dev' ]
             then
-                npm run build:dev
+                #npm run build:dev
+                npm run build
             elif [ $ENVIRONMENT == 'uat' ]
             then
                 npm run build:uat
