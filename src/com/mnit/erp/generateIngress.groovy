@@ -16,7 +16,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: $DNS # change the IP address here
+  #- host: $DNS # change the IP address here
     http:
       paths:" >> ${WORKSPACE}/ingress.yaml
 '''
