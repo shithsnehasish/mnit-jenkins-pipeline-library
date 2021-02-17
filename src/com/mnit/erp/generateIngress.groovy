@@ -26,6 +26,7 @@ svcs.each {
 sh '''
 echo "
       - path: /$SVC
+        pathType: Prefix
         backend:
           service:
             name: $ENVIRONMENT-$SVC-svc
