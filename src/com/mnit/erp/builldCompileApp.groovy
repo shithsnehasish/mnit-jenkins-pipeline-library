@@ -28,8 +28,8 @@ def call(Map pipelineParams) {
             fi
 
             version=$(jq -r .version package.json)
-            docker build -t ${DOCKER_REGISTRY}/${APP_NAME}:$version .
-            docker push ${DOCKER_REGISTRY}/${APP_NAME}:$version
+            docker build -t ${DOCKER_REGISTRY}${APP_NAME}:$version .
+            docker push ${DOCKER_REGISTRY}${APP_NAME}:$version
         '''
     }
     else {
