@@ -16,10 +16,10 @@ def call(Map pipelineParams) {
             if [ $ENVIRONMENT == 'dev' ]
             then
                 npm run build:dev
-            else if [ $ENVIRONMENT == 'uat' ]
+            elif [ $ENVIRONMENT == 'uat' ]
             then
                 npm run build:uat
-            else if [ $ENVIRONMENT == 'prd' ]
+            elif [ $ENVIRONMENT == 'prd' ]
             then
                 npm run build:prd
             else
