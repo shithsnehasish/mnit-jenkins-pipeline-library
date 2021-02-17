@@ -20,6 +20,9 @@ def call(Map pipelineParams) {
           }
           stage("Static Code Analysis") {
             new staticCodeAnalysis().call(pipelineParams)
+          }
+          stage("Delete Previous Deployment") {
+            new deleteDeployment().call(pipelineParams)
           }  
           stage("Deploy") {
             new deployApp().call(pipelineParams)
