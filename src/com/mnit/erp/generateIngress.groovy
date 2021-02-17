@@ -27,8 +27,10 @@ sh '''
 echo "
       - path: /$SVC
         backend:
-          serviceName: $ENVIRONMENT-$SVC-svc
-          servicePort: 80
+          service:
+            name: $ENVIRONMENT-$SVC-svc
+            port:
+              number: 80
             " >> ${WORKSPACE}/ingress.yaml
 '''
 }
