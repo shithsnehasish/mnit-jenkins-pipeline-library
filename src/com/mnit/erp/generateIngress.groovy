@@ -17,7 +17,7 @@ metadata:
 spec:
   rules:
   #- host: $DNS # change the IP address here
-  -http:
+  - http:
       paths:" >> ${WORKSPACE}/ingress.yaml
 '''
 svcs.each {
