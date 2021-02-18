@@ -71,7 +71,7 @@
     spec: 
         type: LoadBalancer
         ports:     
-        - port: %CONTAINER_PORT% 
+        - port: %HOST_PORT% 
           targetPort: %CONTAINER_PORT%
         externalIPs:
         - %HOST_IP%
