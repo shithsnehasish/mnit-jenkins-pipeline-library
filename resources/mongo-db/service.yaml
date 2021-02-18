@@ -67,7 +67,7 @@ metadata:
 spec:    
     type: LoadBalancer    
     ports:    
-    - port: %CONTAINER_PORT% 
+    - port: %HOST_PORT% 
       targetPort: %CONTAINER_PORT%
       nodePort: 0
       protocol: "TCP"
