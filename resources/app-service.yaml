@@ -29,6 +29,7 @@ spec:
     app: %ENVIRONMENT%-%APP_NAME%
   ports:
   - port: %HOST_PORT%
+    targetPort: %CONTAINER_PORT%
   externalIPs:
     - %HOST_IP%
   type: ClusterIP #ClusterIP # LoadBalancer # NodePort # 
