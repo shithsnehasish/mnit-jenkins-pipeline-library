@@ -16,8 +16,8 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  #- host: $DNS # change the IP address here
-  - http:
+  - host: $DNS # change the IP address here
+    http:
       paths:" >> ${WORKSPACE}/ingress.yaml
 '''
 svcs.each {
@@ -30,7 +30,7 @@ echo "
           service:
             name: $ENVIRONMENT-$SVC-svc
             port:
-              number: 80
+              number: 8080
             " >> ${WORKSPACE}/ingress.yaml
 '''
 }
