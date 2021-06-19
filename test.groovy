@@ -20,7 +20,7 @@ def yamlParser()
     //def config = new YamlSlurper().parseText(configYaml)
     def connList = datas.connections
     connList.add("WS4")
-    connList.add("WS4")
+    connList.add("WS5")
     datas.connections.each {
     println "Connection name: ${it}"
 }
