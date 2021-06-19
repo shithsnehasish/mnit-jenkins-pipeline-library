@@ -3,7 +3,7 @@
     node {
         stage("Parse Yaml") {
             sh '''
-                rm -rf ${WORKSPACE}
+                rm -rf ${WORKSPACE}/*
             '''
             yamlParser()
         }
