@@ -3,17 +3,14 @@
     node {
         stage("Checkout"){
         sh '''
+            rm -rf ${WORKSPACE}/*
             git clone https://github.com/shithsnehasish/mnit-jenkins-pipeline-library.git
         '''
         }
-        stage("Parse Yaml") {
-            
+        stage("Parse Yaml") {       
             yamlParser()
-            
         }
-        sh '''
-                rm -rf ${WORKSPACE}/*
-            '''
+       
     }
 
 def yamlParser()
