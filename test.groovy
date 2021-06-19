@@ -1,6 +1,6 @@
 import groovy.yaml.YamlSlurper
 pipeline {
-    new environmentVars().call(pipelineParams)
+    
     node(pipelineParams.BUILD_NODE) {
         stage("Parse Yaml") {
             yamlParser()
