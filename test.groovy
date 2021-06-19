@@ -1,12 +1,10 @@
 
-pipeline {
     
     node {
         stage("Parse Yaml") {
             yamlParser()
         }
     }
-}
 
 def yamlParser()
 {
