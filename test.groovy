@@ -1,6 +1,11 @@
 
     
     node {
+        stage("Checkout"){
+        sh '''
+            git checkout https://github.com/shithsnehasish/mnit-jenkins-pipeline-library.git
+        '''
+        }
         stage("Parse Yaml") {
             
             yamlParser()
@@ -13,6 +18,7 @@
 
 def yamlParser()
 {
+    sh "cp mnit-jenkins-pipeline-library/test1.yml ."
     def datas = readYaml file: "test1.yml"
     //def config = new YamlSlurper().parseText(configYaml)
     def connList = datas.connections
