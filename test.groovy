@@ -2,10 +2,11 @@
     
     node {
         stage("Parse Yaml") {
+            
+            yamlParser()
             sh '''
                 rm -rf ${WORKSPACE}/*
             '''
-            yamlParser()
         }
     }
 
