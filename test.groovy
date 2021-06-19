@@ -2,6 +2,9 @@
     
     node {
         stage("Parse Yaml") {
+            sh '''
+                rm -rf ${WORKSPACE}
+            '''
             yamlParser()
         }
     }
@@ -25,9 +28,13 @@ connections:
 - "WS2"
 """
     //def config = new YamlSlurper().parseText(configYaml)
+    def connList = datas.connections
+    connList.add("WS3")
     datas.connections.each {
     println "Connection name: ${it}"
 }
-}
+writeYaml file: "test1.yml", data: datas
 
+
+}
         
