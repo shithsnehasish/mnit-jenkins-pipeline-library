@@ -8,15 +8,7 @@
 
 def yamlParser()
 {
-    def datas = readYaml text: configYaml
-    //def config = new YamlSlurper().parseText(configYaml)
-    datas.connections.each {
-    println "Connection name: ${it}"
-}
-}
-
-def configYaml = '''\
----
+    def datas = readYaml text: """\
 application: "Sample App"
 users:
 - name: "mrhaki"
@@ -31,5 +23,12 @@ users:
 connections:
 - "WS1"
 - "WS2"
-'''
+"""
+    //def config = new YamlSlurper().parseText(configYaml)
+    datas.connections.each {
+    println "Connection name: ${it}"
+}
+}
+
+def configYaml = 
         
