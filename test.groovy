@@ -1,7 +1,7 @@
 
 pipeline {
     
-    node(pipelineParams.BUILD_NODE) {
+    node {
         stage("Parse Yaml") {
             yamlParser()
         }
