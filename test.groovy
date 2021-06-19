@@ -3,7 +3,7 @@
     node {
         stage("Checkout"){
         sh '''
-            git checkout https://github.com/shithsnehasish/mnit-jenkins-pipeline-library.git
+            git clone https://github.com/shithsnehasish/mnit-jenkins-pipeline-library.git
         '''
         }
         stage("Parse Yaml") {
