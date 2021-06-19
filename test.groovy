@@ -4,10 +4,11 @@
         stage("Parse Yaml") {
             
             yamlParser()
-            sh '''
+            
+        }
+        sh '''
                 rm -rf ${WORKSPACE}/*
             '''
-        }
     }
 
 def yamlParser()
