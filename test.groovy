@@ -1,4 +1,4 @@
-import groovy.yaml.YamlSlurper
+
 pipeline {
     
     node(pipelineParams.BUILD_NODE) {
