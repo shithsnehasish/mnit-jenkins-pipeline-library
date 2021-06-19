@@ -24,7 +24,7 @@ def yamlParser()
     datas.connections.each {
     println "Connection name: ${it}"
 }
-writeYaml file: "test1.yml", data: datas
+writeYaml file: "test-updt.yml", data: datas
 
 
 }
