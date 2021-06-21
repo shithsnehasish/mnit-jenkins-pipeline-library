@@ -21,10 +21,8 @@ def yamlParser()
     //println datas.users
     def envMap = datas.users.env
     //println envMap
-    for ( e in envMap ) {
-        //print "key = ${e.key}, value = ${e.value}"
-        print e
-    }
+    envMap.each{ k, v -> println "${k}:${v}" }
+    
 
     def connList = datas.connections
     connList.add("WS4")
