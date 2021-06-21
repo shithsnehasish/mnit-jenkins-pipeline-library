@@ -21,7 +21,8 @@ def yamlParser()
     //println datas.users
     def envMap = datas.users.env
     //println envMap
-    envMap.add("COUNTRY","SG")
+    envMap.add("COUNTRY")
+    //,"SG")
     //envMap.put("APP_TYPE","MS")
     envMap.each{ k, v -> println "${k}:${v}" }
     
