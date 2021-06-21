@@ -19,12 +19,15 @@ def yamlParser()
     def datas = readYaml file: "test.yml"
     //def config = new YamlSlurper().parseText(configYaml)
     //println datas.users
-    def envMap = datas.users.env
+    def envList = datas.users.env
     //println envMap
     //envMap.put("COUNTRY","SG")
     //envMap.put("APP_TYPE","MS")
-    envMap.each{ k, v -> println "Key -->${k}: Value --->s${v}" }
-    
+    envList.add("COUNTRY: SG")
+    envList.add("APP_TYPE: MS")
+    envList.each {
+    println "Connection name: ${it}"
+}
 
     def connList = datas.connections
     connList.add("WS4")
