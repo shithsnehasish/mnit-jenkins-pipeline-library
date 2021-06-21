@@ -21,14 +21,12 @@ def yamlParser()
     //println datas.users
     def usersList = datas.users
     //println envMap
-    
     def envList = usersList.env
     Map envMap = [:]
     envMap.put("COUNTRY","SG")
     envMap.put("APP_TYPE","MS")
-    envList.add("COUNTRY=SG")
     envList.add(envMap)
-    println envList
+    println "envList --> "+envList
     for( envs in envList)
     {
         echo "inside loop"
