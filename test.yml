@@ -2,6 +2,8 @@ application: Sample App
 users:
 - name: mrhaki
   env:
+    image: docker.registry
+    imagePullPolicy: always
 - name: Hubert
   likes:
   - Apples
