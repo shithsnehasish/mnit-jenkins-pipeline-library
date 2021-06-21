@@ -26,15 +26,9 @@ def yamlParser()
     envList.add("COUNTRY: SG")
     envList.add("APP_TYPE: MS")
     envList.each {
-    println "Connection name: ${it}"
-}
+        println "ENV Vars ${it}"
+    }
 
-    def connList = datas.connections
-    connList.add("WS4")
-    connList.add("WS5")
-    datas.connections.each {
-    println "Connection name: ${it}"
-}
 writeYaml file: "test-updt.yml", data: datas
 
 
