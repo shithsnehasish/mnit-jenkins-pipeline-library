@@ -18,6 +18,7 @@ def yamlParser()
     sh "cp mnit-jenkins-pipeline-library/test.yml ."
     def datas = readYaml file: "test.yml"
     //def config = new YamlSlurper().parseText(configYaml)
+    println datas.users
     def envMap = datas.users.env
     println envMap
     for ( e in envMap ) {
