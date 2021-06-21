@@ -30,11 +30,7 @@ def yamlParser()
             println user
         }
     }
-    envList.add("COUNTRY: SG")
-    envList.add("APP_TYPE: MS")
-    envList.each {
-        println "ENV Vars ${it}"
-    }
+    
 println datas
 writeYaml file: "test-updt.yml", data: datas
 
