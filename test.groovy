@@ -28,7 +28,7 @@ def yamlParser()
     envList.each {
         println "ENV Vars ${it}"
     }
-
+println datas
 writeYaml file: "test-updt.yml", data: datas
 
 
