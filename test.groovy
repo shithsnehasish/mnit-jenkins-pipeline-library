@@ -18,6 +18,11 @@ def yamlParser()
     sh "cp mnit-jenkins-pipeline-library/test.yml ."
     def datas = readYaml file: "test.yml"
     //def config = new YamlSlurper().parseText(configYaml)
+    def envMap = datas.users.env
+    for ( e in envMap ) {
+        print "key = ${e.key}, value = ${e.value}"
+    }
+
     def connList = datas.connections
     connList.add("WS4")
     connList.add("WS5")

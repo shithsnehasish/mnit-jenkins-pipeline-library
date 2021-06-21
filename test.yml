@@ -1,10 +1,9 @@
 application: Sample App
 users:
 - name: mrhaki
-  likes:
-  - Groovy
-  - Clojure
-  - Java
+  env:
+  image: docker.registry
+  imagePullPolicy: always
 - name: Hubert
   likes:
   - Apples
@@ -13,3 +12,4 @@ connections:
 - WS1
 - WS2
 - WS3
+
