@@ -23,7 +23,7 @@ def yamlParser()
     //println envMap
     //envMap.put("COUNTRY","SG")
     //envMap.put("APP_TYPE","MS")
-    envMap.each{ k, v -> println "${k}:${v}" }
+    envMap.each{ k, v -> println "Key -->${k}: Value --->s${v}" }
     
 
     def connList = datas.connections
