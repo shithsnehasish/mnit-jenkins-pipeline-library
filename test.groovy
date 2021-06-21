@@ -19,10 +19,17 @@ def yamlParser()
     def datas = readYaml file: "test.yml"
     //def config = new YamlSlurper().parseText(configYaml)
     //println datas.users
-    def envList = datas.users.env
+    def usersList = datas.users
     //println envMap
     //envMap.put("COUNTRY","SG")
     //envMap.put("APP_TYPE","MS")
+    for( user in usersList)
+    {
+        if(user == "env")
+        {
+            println user
+        }
+    }
     envList.add("COUNTRY: SG")
     envList.add("APP_TYPE: MS")
     envList.each {
