@@ -25,10 +25,7 @@ def yamlParser()
     //envMap.put("APP_TYPE","MS")
     for( user in usersList)
     {
-        if(user == "env")
-        {
-            println user
-        }
+        println user
     }
     
 println datas
