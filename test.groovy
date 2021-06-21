@@ -23,9 +23,10 @@ def yamlParser()
     //println envMap
     //envMap.put("COUNTRY","SG")
     //envMap.put("APP_TYPE","MS")
-    for( user in usersList)
+     envList = user.env
+    for( env in envList)
     {
-        println user.env
+        println env
     }
     
 println datas
