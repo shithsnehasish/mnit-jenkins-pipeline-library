@@ -12,7 +12,7 @@ def call(Map pipelineParams) {
           }
           stage("Build") {
             sh '''
-              /opt/apache-maven-3.8.1/mvn clean install
+              /opt/apache-maven-3.8.1/bin/mvn clean install
             '''
           }
           stage("Static Code Analysis") {
