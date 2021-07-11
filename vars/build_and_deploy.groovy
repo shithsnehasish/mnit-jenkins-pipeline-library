@@ -3,11 +3,11 @@ def call(Map pipelineParams) {
   try{
     timeout(time: 60, unit: 'MINUTES') {
       pipeline {
-        
+        env.REPO = pipelineParams.REPO
         node {
           stage("Code Checkout") {
             sh '''
-              git clone https://github.com/jglick/simple-maven-project-with-tests.git
+              git clone ${REPO}
             '''
           }
           stage("Build") {
