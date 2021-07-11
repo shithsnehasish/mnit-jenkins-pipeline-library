@@ -13,8 +13,8 @@ def call(Map pipelineParams) {
           }
           stage("Build") {
             sh '''
-               cd simple-maven-project-with-tests
-              /opt/apache-maven-3.8.1/bin/mvn clean install
+               cd ${APP_NAME}
+              ${MVN_HOME}/mvn clean install
             '''
           }
           stage("Static Code Analysis") {
