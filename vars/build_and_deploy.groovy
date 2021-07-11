@@ -4,6 +4,8 @@ def call(Map pipelineParams) {
     timeout(time: 60, unit: 'MINUTES') {
       pipeline {
         env.REPO = pipelineParams.REPO
+        env.APP_NAME = pipelineParams.APP_NAME
+        env.MVN_HOME = pipelineParams.MVN_HOME
         node {
           stage("Code Checkout") {
             sh '''
