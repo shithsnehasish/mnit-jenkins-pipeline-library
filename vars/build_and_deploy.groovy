@@ -12,12 +12,13 @@ def call(Map pipelineParams) {
             sh '''
               rm -rf ${WORKSPACE}/*
               git clone ${REPO}
-              git checkout ${BRANCH}
+              
             '''
           }
           stage("Build") {
             sh '''
                cd ${APP_NAME}
+               git checkout ${BRANCH}
               ${MVN_HOME}/mvn clean install
             '''
           }
