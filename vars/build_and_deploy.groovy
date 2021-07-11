@@ -35,6 +35,7 @@ def call(Map pipelineParams) {
           stage("Deploy") {
             sh '''
               echo "Deployment"
+              cp ${WORKSPACE}/${APP_NAME}/target/*.war /opt/apache-tomcat-8.5.69/webapps/
             '''
           }
         }
