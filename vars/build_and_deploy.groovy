@@ -4,6 +4,7 @@ def call(Map pipelineParams) {
     timeout(time: 60, unit: 'MINUTES') {
       pipeline {
         env.REPO = pipelineParams.REPO
+        env.BRANCH = pipelineParams.BRANCH
         env.APP_NAME = pipelineParams.APP_NAME
         env.MVN_HOME = pipelineParams.MVN_HOME
         node {
@@ -11,6 +12,7 @@ def call(Map pipelineParams) {
             sh '''
               rm -rf ${WORKSPACE}/*
               git clone ${REPO}
+              git checkout ${BRANCH}
             '''
           }
           stage("Build") {
