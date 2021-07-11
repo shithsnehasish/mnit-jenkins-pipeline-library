@@ -7,11 +7,13 @@ def call(Map pipelineParams) {
         node {
           stage("Code Checkout") {
             sh '''
+              rm -rf ${WORKSPACE}
               git clone ${REPO}
             '''
           }
           stage("Build") {
             sh '''
+               cd simple-maven-project-with-tests
               /opt/apache-maven-3.8.1/bin/mvn clean install
             '''
           }
