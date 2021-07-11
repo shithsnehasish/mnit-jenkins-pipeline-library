@@ -7,7 +7,7 @@ def call(Map pipelineParams) {
         node {
           stage("Code Checkout") {
             sh '''
-              rm -rf ${WORKSPACE}
+              rm -rf ${WORKSPACE}/*
               git clone ${REPO}
             '''
           }
